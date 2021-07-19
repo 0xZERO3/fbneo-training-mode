@@ -213,7 +213,7 @@ local profile = {
 		end
 	end,
 },
-{	games = {"sfa3"},
+{	games = {"sfa3", "sfa3aism"},
 	number = {players = 4, projectiles = 24},
 	address = {
 		player      = 0xFF8400,
@@ -808,7 +808,7 @@ local projectile_type = {
 	["vulnerability"] = "proj. vulnerability",
 }
 
-local DRAW_DELAY = 1
+local DRAW_DELAY = 0
 if fba then
 	DRAW_DELAY = DRAW_DELAY + 1
 end
