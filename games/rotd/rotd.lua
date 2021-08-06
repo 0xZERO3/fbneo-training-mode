@@ -21,28 +21,28 @@ local p1combocounter = 0x102351
 local p2combocounter = 0x1024C9
 
 translationtable = {
-	"coin",
-	"start",
-	"select",
-	"up",
-	"down",
 	"left",
 	"right",
+	"up",
+	"down",
 	"button1",
 	"button2",
 	"button3",
 	"button4",
-	["Coin"] = 1,
-	["Start"] = 2,
-	["Select"] = 3,
-	["Up"] = 4,
-	["Down"] = 5,
-	["Left"] = 6,
-	["Right"] = 7,
-	["Button A"] = 8,
-	["Button B"] = 9,
-	["Button C"] = 10,
-	["Button D"] = 11,
+	"coin",
+	"start",
+	"select",
+	["Left"] = 1,
+	["Right"] = 2,
+	["Up"] = 3,
+	["Down"] = 4,
+	["Button A"] = 5,
+	["Button B"] = 6,
+	["Button C"] = 7,
+	["Button D"] = 8,
+	["Coin"] = 9,
+	["Start"] = 10,
+	["Select"] = 11,
 }
 
 gamedefaultconfig = {
@@ -115,16 +115,10 @@ function writePlayerTwoMeter(meter)
 	wb(p2meter, meter)
 end
 
-local function stunMeter()
-	P2StunMeter = rb(0x102365)
-	gui.text(147,67, "Stun: " ..P2StunMeter, "green")
-end
-
 function infiniteTime()
 	memory.writeword(0x106B11, 0x3CFF)
 end
 
 function Run() -- runs every frame
-	stunMeter()
 	infiniteTime()
 end
