@@ -13,6 +13,7 @@ Be sure to be playing against P2.
 
 
 Video showing usage of the simple options: https://www.youtube.com/watch?v=sWxGWU1npm0
+Latest overview video: https://www.youtube.com/watch?v=49eiCH2u6Yc
 
 
 Currently supports:
@@ -26,6 +27,8 @@ Art of Fighting 2
 Art of Fighting 3
 
 Asura Buster
+
+Asura Blade
 
 Breakers Revenge
 
@@ -56,6 +59,8 @@ JoJo's Venture
 Kabuki Klash
 
 Karnov's Revenge
+
+Kizuna Encounter
 
 The King Of Fighters '94
 
@@ -89,6 +94,8 @@ The Last Blade 2
 
 Matrimelee
 
+Martial Masters
+
 Marvel Super Heroes
 
 Marvel Super Heroes vs Street Fighter
@@ -97,7 +104,11 @@ Marvel vs Capcom - Clash of Super Heroes
 
 Mighty Warriors
 
+Mobile Suit Gundam Ex Revue
+
 Ninja Masters
+
+Rabbit
 
 Rage of the Dragons
 
@@ -136,6 +147,8 @@ Street Fighter Alpha 3
 Super Gem Fighter
 
 Super Street Fighter 2X - Grand Master Challenge
+
+Tōkidenshō Angel Eyes
 
 Vampire Hunter
 
