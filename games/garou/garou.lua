@@ -6,9 +6,10 @@ p2maxhealth = 0x78
 p1maxmeter = 0x80
 p2maxmeter = 0x80
 
+local p1direction = 0x100458
+local p2direction = 0x100558
+
 print "Known Issues: with garou"
-print "Combo counter doesn't work"
-print "Total just adds every hits damage whether it combos or not"
 print "hitboxes don't currently work"
 print ""
 
@@ -39,20 +40,39 @@ translationtable = {
 
 gamedefaultconfig = {
 	hud = {
-		p1healthx=22,
+		combotextx=145,
+		combotexty=40,
+		comboenabled=true,
+		p1healthx=6,
 		p1healthy=16,
 		p1healthenabled=true,
-		p2healthx=288,
+		p2healthx=303,
 		p2healthy=16,
 		p2healthenabled=true,
-		p1meterx=77,
+		p1meterx=90,
 		p1metery=208,
 		p1meterenabled=true,
-		p2meterx=232,
+		p2meterx=222,
 		p2metery=208,
 		p2meterenabled=true,
 	},
 }
+
+function playerOneFacingLeft()
+	return rb(p1direction)==0
+end
+
+function playerTwoFacingLeft()
+	return rb(p2direction)==0
+end
+
+function playerOneInHitstun()
+	return rb(0x10a39D)~=0
+end
+
+function playerTwoInHitstun()
+	return rb(0x10a39C)~=0 
+end
 
 function readPlayerOneHealth()
 	return rb(0x10048E)
