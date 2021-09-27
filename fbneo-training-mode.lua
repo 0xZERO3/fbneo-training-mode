@@ -75,7 +75,7 @@ local games = {
 	sf2ce = {"sf2ce", hitboxes = "cps2-hitboxes", iconfile = "icons-capcom-32.png"},
 	sfa = {"sfa", hitboxes = "cps2-hitboxes", iconfile = "icons-capcom-32.png"},
 	sfa2 = {"sfa2", "sfa2u", hitboxes = "cps2-hitboxes", iconfile = "icons-capcom-32.png"},
-	sfa3 = {"sfa3", hitboxes = "cps2-hitboxes", iconfile = "icons-capcom-32.png"},
+	sfa3 = {"sfa3", "sfz3j", "sfz3jr1", "sfz3jr2", "sfa3aism", "sfz3te",  hitboxes = "cps2-hitboxes", iconfile = "icons-capcom-32.png"},
 	sgemf = {"sgemf", hitboxes = "cps2-hitboxes", iconfile = "icons-capcom-32.png"},
 	ssf2xjr1 = {"ssf2xjr1", hitboxes = "sf2-hitboxes", iconfile = "icons-capcom-32.png"},
 	tkdensho = {"tkdensho", iconfile = "icons-banpresto-32.png"},
