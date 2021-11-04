@@ -119,19 +119,8 @@ end
 
 local infiniteTime = function()
 	wb(0xFF8109, 99)
-	wb(0xFF810A, 59)
-end
-
-local unlockAll = function()
-	wb(0xFF80EE, 4)
-end
-
-local changeTurbo1toTurbo2 = function()
-	if rb(0xFF8116) == 6 then wb(0xFF8116, 8) end
 end
 
 function Run() -- runs every frame
 	infiniteTime()
-	unlockAll()
-	changeTurbo1toTurbo2()
 end
