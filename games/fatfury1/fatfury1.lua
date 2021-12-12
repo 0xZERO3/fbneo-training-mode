@@ -1,18 +1,19 @@
 assert(rb,"Run fbneo-training-mode.lua")
 
-p1maxhealth = 0xFF
-p2maxhealth = 0xFF
+p1maxhealth = 0x60
+p2maxhealth = 0x60
 
-p1maxmeter = 0x3C
-p2maxmeter = 0x3C
+local p1health = 0x1003B8
+local p1redhealth = 0x1003B9
+local p2health = 0x100589
+local p2redhealth = 0x100589
 
-local p1health = 0x1037B7
-local p1redhealth = 0x1037B9
-local p2health = 0x1039B7
-local p2redhealth = 0x1039B9
+local p1direction = 0x100445
+local p2direction = 0x100345
 
-print "Known issues with karnovr:"
-print "Note karnovr has no meter"
+print "Note that fatfury1 has no meter"
+print "Known issue:"
+print "Hitstun not set up"
 print ""
 
 translationtable = {
@@ -42,32 +43,24 @@ translationtable = {
 
 gamedefaultconfig = {
 	hud = {
-		combotextx=139,
+		combotextx=144,
 		combotexty=42,
 		comboenabled=true,
-		p1healthx=18,
+		p1healthx=25,
 		p1healthy=21,
 		p1healthenabled=true,
-		p2healthx=275,
+		p2healthx=284,
 		p2healthy=21,
 		p2healthenabled=true,
-	}
+	},
 }
 
 function playerOneFacingLeft()
-	return rb(0x103691)==0 or rb(0x103691)==0x40
+	return rb(p1direction)==1
 end
 
 function playerTwoFacingLeft()
-	return rb(0x103891)==0 or rb(0x103891)==0x40
-end
-
-function playerOneInHitstun()
-	return rb(0x10372C)~=0
-end
-
-function playerTwoInHitstun()
-	return rb(0x10392C)~=0
+	return rb(p2direction)==1
 end
 
 function readPlayerOneHealth()
@@ -76,6 +69,7 @@ end
 
 function writePlayerOneHealth(health)
 	wb(p1health, health)
+	wb(p1redhealth, health)
 end
 
 function readPlayerTwoHealth()
@@ -84,10 +78,11 @@ end
 
 function writePlayerTwoHealth(health)
 	wb(p2health, health)
+	wb(p2redhealth, health)
 end
 
 function infiniteTime()
-	ww(0x103A70, 0x6000)
+	wb(0x1042F3, 0x99)
 end
 
 function Run() -- runs every frame
