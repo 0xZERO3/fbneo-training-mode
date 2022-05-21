@@ -191,7 +191,7 @@ local defaultconfig = {
 		iconsize = 10,
 		coinleniency = 10,
 		scrollingstate = {true, true},
-		framenumbersenabled = false,
+		framenumbersenabled = true,
 		scrollinginputxoffset = {},
 		scrollinginputyoffset = {},
 	},
@@ -202,7 +202,7 @@ local defaultconfig = {
 	},
 
 	hitbox = {
-		enabled = true,
+		enabled = false,
 	},
 }
 
