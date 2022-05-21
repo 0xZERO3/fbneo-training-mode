@@ -170,7 +170,7 @@ local profile = {
 		end
 	end,
 },
-{	games = {"sfa3"},
+{	games = {"sfa3", "sfa3aism"},
 	number = {players = 4, projectiles = 24},
 	address = {
 		player      = 0xFF8400,
@@ -182,7 +182,7 @@ local profile = {
 		flip_x       = 0x0B,
 		hitbox_ptr   = nil,
 	},
-	friends = {0x17, 0x22},
+--	friends = {0x17, 0x22},
 	box_list = {
 		{anim_ptr =  nil, addr_table_ptr = 0x9C, id_ptr =  0xCB, id_shift = 0x3, type = "push"},
 		{anim_ptr =  nil, addr_table_ptr = 0x90, id_ptr =  0xC8, id_shift = 0x3, type = "vulnerability"},
@@ -204,10 +204,10 @@ local profile = {
 		(rw(0xFF8008) == 0x2 and rw(0xFF800A) > 0),
 	}) end,
 	invulnerable = function(obj, box) return any_true({
-		rb(obj.base + 0x067) > 0,
-		rb(obj.base + 0x25D) > 0,
-		rb(obj.base + 0x0D6) > 0,
-		rb(obj.base + 0x2CE) > 0,
+--		rb(obj.base + 0x067) > 0,
+--		rb(obj.base + 0x25D) > 0,
+--		rb(obj.base + 0x0D6) > 0,
+--		rb(obj.base + 0x2CE) > 0,
 	}) end,
 	unpushable = function(obj, box) return any_true({
 		rb(obj.base + 0x67) > 0,
@@ -639,7 +639,7 @@ local projectile_type = {
 	["vulnerability"] = "proj. vulnerability",
 }
 
-local DRAW_DELAY = 1
+local DRAW_DELAY = 0
 if fba then
 	DRAW_DELAY = DRAW_DELAY + 1
 end
