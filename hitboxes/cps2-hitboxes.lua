@@ -9,16 +9,16 @@
 --print("Lua hotkey 5: toggle throwable boxes")
 --]]
 local boxes = {
-	      ["vulnerability"] = {color = 0x7777FF, fill = 0x40, outline = 0xFF},
-	             ["attack"] = {color = 0xFF0000, fill = 0x40, outline = 0xFF},
-	["proj. vulnerability"] = {color = 0x00FFFF, fill = 0x40, outline = 0xFF},
-	       ["proj. attack"] = {color = 0xFF66FF, fill = 0x40, outline = 0xFF},
-	               ["push"] = {color = 0x00FF00, fill = 0x20, outline = 0xFF},
-	           ["tripwire"] = {color = 0xFF66FF, fill = 0x40, outline = 0xFF}, --sfa3
-	             ["negate"] = {color = 0xFFFF00, fill = 0x40, outline = 0xFF}, --dstlk, nwarr
-	              ["throw"] = {color = 0xFFFF00, fill = 0x40, outline = 0xFF},
-	         ["axis throw"] = {color = 0xFFAA00, fill = 0x40, outline = 0xFF}, --sfa, sfa2, nwarr
-	          ["throwable"] = {color = 0xF0F0F0, fill = 0x20, outline = 0xFF},
+	      ["vulnerability"] = {color = 0x7777FF, fill = 0x00, outline = 0xFF},
+	             ["attack"] = {color = 0xFF0000, fill = 0x00, outline = 0xFF},
+	["proj. vulnerability"] = {color = 0x00FFFF, fill = 0x00, outline = 0xFF},
+	       ["proj. attack"] = {color = 0xFF66FF, fill = 0x00, outline = 0xFF},
+	               ["push"] = {color = 0x00FF00, fill = 0x00, outline = 0xFF},
+	           ["tripwire"] = {color = 0xFF66FF, fill = 0x00, outline = 0xFF}, --sfa3
+	             ["negate"] = {color = 0xFFFF00, fill = 0x00, outline = 0xFF}, --dstlk, nwarr
+	              ["throw"] = {color = 0xFFFF00, fill = 0x00, outline = 0xFF},
+	         ["axis throw"] = {color = 0xFFAA00, fill = 0x00, outline = 0xFF}, --sfa, sfa2, nwarr
+	          ["throwable"] = {color = 0xF0F0F0, fill = 0x00, outline = 0xFF},
 }
 
 local globals = {
