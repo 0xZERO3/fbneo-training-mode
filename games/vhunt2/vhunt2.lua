@@ -1,24 +1,19 @@
 assert(rb,"Run fbneo-training-mode.lua") -- make sure the main script is being run
 
-p1maxhealth = 144
-p2maxhealth = 144
-p1maxmeter = 0x90
-p2maxmeter = 0x90
+p1maxhealth = 0x120
+p2maxhealth = 0x120
+p1maxmeter = 0x63
+p2maxmeter = 0x63
 
 
 local p1health = 0xFF8450
-local p1redhealth = 0xff8452
 local p2health = 0xFF8850
-local p2redhealth = 0xFF8852
 
-local p1meter = 0xFF851F
-local p2meter = 0xFF891F
+local p1whitehealth = 0xFF8452
+local p2whitehealth = 0xFF8852
 
-local p1direction = 0xff840b
-local p2direction = 0xff880b
-
-local p1combocounter = 0xff885e
-local p2combocounter = 0xff845e
+local p1meter = 0xFF8509
+local p2meter = 0xFF8909
 
 translationtable = {
 	"left",
@@ -49,38 +44,42 @@ translationtable = {
 
 gamedefaultconfig = {
 	hud = {
-		combotextx=179,
+		combotextx=176,
 		combotexty=42,
 		comboenabled=true,
-		p1healthx=33,
-		p1healthy=18,
+		p1healthx=148,
+		p1healthy=16,
 		p1healthenabled=true,
-		p2healthx=340,
-		p2healthy=18,
+		p2healthx=225,
+		p2healthy=16,
 		p2healthenabled=true,
-		p1meterx=176,
-		p1metery=210,
+		p1meterx=8,
+		p1metery=206,
 		p1meterenabled=true,
-		p2meterx=205,
-		p2metery=210,
+		p2meterx=209,
+		p2metery=206,
 		p2meterenabled=true,
+	},
+	p2 = {
+		instantrefillhealth = false,
+		instantrefillmeter = true,
 	},
 }
 
 function playerOneFacingLeft()
-	return rb(p1direction)==0
+	return rb(0xFF840B)==0
 end
 
 function playerTwoFacingLeft()
-	return rb(p2direction)==0
+	return rb(0xFF880B)==0
 end
 
 function playerOneInHitstun()
-	return rb(p2combocounter)~=0
+	return rb(0xFF8544)~=0
 end
 
 function playerTwoInHitstun()
-	return rb(p1combocounter)~=0
+	return rb(0xFF8944)~=0
 end
 
 function readPlayerOneHealth()
@@ -89,7 +88,7 @@ end
 
 function writePlayerOneHealth(health)
 	ww(p1health, health)
-	ww(p1redhealth, health)
+	ww(p1whitehealth, health)
 end
 
 function readPlayerTwoHealth()
@@ -98,7 +97,7 @@ end
 
 function writePlayerTwoHealth(health)
 	ww(p2health, health)
-	ww(p2redhealth, health)
+	ww(p2whitehealth, health)
 end
 
 function readPlayerOneMeter()
@@ -118,7 +117,7 @@ function writePlayerTwoMeter(meter)
 end
 
 local infiniteTime = function()
-	wb(0xFF8109, 99)
+	ww(0xFF8109, 0x6300)
 end
 
 function Run() -- runs every frame

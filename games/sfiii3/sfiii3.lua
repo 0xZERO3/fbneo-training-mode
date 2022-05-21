@@ -1,24 +1,22 @@
 assert(rb,"Run fbneo-training-mode.lua") -- make sure the main script is being run
 
-p1maxhealth = 144
-p2maxhealth = 144
-p1maxmeter = 0x90
-p2maxmeter = 0x90
+p1maxhealth = 0xA0
+p2maxhealth = 0xA0
+p1maxmeter = rb(0x20286AD)
+p2maxmeter = rb(0x20286e1)
 
 
-local p1health = 0xFF8450
-local p1redhealth = 0xff8452
-local p2health = 0xFF8850
-local p2redhealth = 0xFF8852
+local p1health = 0x2068D0B
+local p2health = 0x20691A3
 
-local p1meter = 0xFF851F
-local p2meter = 0xFF891F
+local p1meter = 0x20695BE
+local p2meter = 0x20695EB
 
-local p1direction = 0xff840b
-local p2direction = 0xff880b
+local p1direction = 0x2068C76 
+local p2direction = 0x2068C77
 
-local p1combocounter = 0xff885e
-local p2combocounter = 0xff845e
+local p1combocounter = 0x2028861 
+local p2combocounter = 0x206961D
 
 translationtable = {
 	"left",
@@ -52,18 +50,12 @@ gamedefaultconfig = {
 		combotextx=179,
 		combotexty=42,
 		comboenabled=true,
-		p1healthx=33,
-		p1healthy=18,
+		p1healthx=9,
+		p1healthy=17,
 		p1healthenabled=true,
-		p2healthx=340,
-		p2healthy=18,
+		p2healthx=364,
+		p2healthy=17,
 		p2healthenabled=true,
-		p1meterx=176,
-		p1metery=210,
-		p1meterenabled=true,
-		p2meterx=205,
-		p2metery=210,
-		p2meterenabled=true,
 	},
 }
 
@@ -72,7 +64,7 @@ function playerOneFacingLeft()
 end
 
 function playerTwoFacingLeft()
-	return rb(p2direction)==0
+	return rb(p2direction)==1
 end
 
 function playerOneInHitstun()
@@ -84,21 +76,19 @@ function playerTwoInHitstun()
 end
 
 function readPlayerOneHealth()
-	return rw(p1health)
+	return rb(p1health)
 end
 
 function writePlayerOneHealth(health)
-	ww(p1health, health)
-	ww(p1redhealth, health)
+	wb(p1health, health)
 end
 
 function readPlayerTwoHealth()
-	return rw(p2health)
+	return rb(p2health)
 end
 
 function writePlayerTwoHealth(health)
-	ww(p2health, health)
-	ww(p2redhealth, health)
+	wb(p2health, health)
 end
 
 function readPlayerOneMeter()
@@ -118,7 +108,7 @@ function writePlayerTwoMeter(meter)
 end
 
 local infiniteTime = function()
-	wb(0xFF8109, 99)
+	wb(0x2011377, 0x63)
 end
 
 function Run() -- runs every frame
